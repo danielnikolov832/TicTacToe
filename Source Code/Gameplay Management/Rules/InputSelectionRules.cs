@@ -75,6 +75,5 @@ namespace TicTacToe.GameplayManagement.Rules
                 throw new Exception(globals_GameplayTexts.notValidElementStateText);
             }
         }
-
     }
 }
