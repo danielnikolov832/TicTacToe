@@ -14,10 +14,8 @@ namespace TicTacToe.GameplayManagement
 
         public const string selectRowText = "Please enter a number between 1 and 3 to select a corresponding row";
         public const string selectColumnText = "Please enter a number between 1 and 3 to select a corresponding column";
-        public const string selectXOrOText = 
-            "Press:" + "\n" + 
-            "'X' or 'x' to select X," + "\n" + 
-            "'O' or 'o' to select O";
+        public const string notValidElementStateText = "currentSelectedInputState is not valid";
+            
 
         public const string invalidInputText = "Invalid input";
         public const string alreadyAssignedText = "This element has already been assigned, try different coordinates";
