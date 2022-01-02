@@ -21,6 +21,8 @@ namespace TicTacToe.GameplayManagement.Rules
             }
         }
 
+        private static TableElementStates currentSelectedInputState = TableElementStates.X;
+
         public static int SelectRow()
         {
             Console.WriteLine(globals_GameplayTexts.selectRowText);
@@ -54,29 +56,24 @@ namespace TicTacToe.GameplayManagement.Rules
 
         public static TableElementStates SelectXOrO()
         {
-            Console.WriteLine(globals_GameplayTexts.selectXOrOText);
-
-            TableElementStates output;
-
-            ConsoleKeyInfo currentKeyInfo = Console.ReadKey();
+            ConsoleKeyInfo currentKeyInfo = Console.ReadKey(true);
             
-            Console.WriteLine(); 
+            if (currentSelectedInputState == TableElementStates.X)
+            {
+                currentSelectedInputState = TableElementStates.O;
 
-            if (currentKeyInfo.Key == ConsoleKey.X)
-            {
-                output = TableElementStates.X;
+                return TableElementStates.X;
             }
-            else if (currentKeyInfo.Key == ConsoleKey.O)
+            else if (currentSelectedInputState == TableElementStates.O)
             {
-                output = TableElementStates.O;
+                currentSelectedInputState = TableElementStates.X;
+
+                return TableElementStates.O;
             }
             else
             {
-                Console.WriteLine($"\n{globals_GameplayTexts.invalidInputText}\n");
-                return SelectXOrO();
+                throw new Exception(globals_GameplayTexts.notValidElementStateText);
             }
-
-            return output;
         }
 
     }
