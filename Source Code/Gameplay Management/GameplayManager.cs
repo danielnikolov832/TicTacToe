@@ -7,7 +7,7 @@ namespace TicTacToe.GameplayManagement
     // Responsible for managing turns of players and proper gameplay based on the defined rules
     internal static class GameplayManager
     {
-        public static int get_currentTurnNumber {get; private set;} = 0;
+        public static int get_currentTurnNumber {get; private set;} = 1;
 
         public delegate void OnWinHandler();
         public static event OnWinHandler? OnWin;
@@ -17,19 +17,41 @@ namespace TicTacToe.GameplayManagement
 
         public static GameLog PlayGame()
         {
-            GameLog gameLog = new GameLog();
+            TableData.OnTableElementChanged += (int indexForDimension0, int indexForDimension1, TableElementStates? newElement) =>
+            {
+                if (newElement != null)
+                {
+                    InputSelectionRules.ChangePlayerElementState();
+                }
+            };
+
+            GameLog output = new GameLog();
+
+            output = ExecuteGameTurnLoop();           
+
+            return output;
+        }
+
+        private static GameLog ExecuteGameTurnLoop()
+        {
+            GameLog output = new GameLog();
 
             Console.WriteLine(
                 globals_GameplayTexts.pressAnyKeyToContinueText +
                 "\n");
-
+            
             while (Console.ReadKey(true).Key != InputSelectionRules.GameExitKey)
             {
                 Console.Clear();
 
-                TurnData turn = ExecuteTurn();
+                TurnData turn = TurnExecutionRules.ExecuteTurn(
+                    get_currentTurnNumber, InputSelectionRules.get_currentSelectedInputState);
 
-                gameLog.AddTurn(turn);
+                output.AddTurn(turn);
+
+                OnEventExecution?.Invoke(turn);
+
+                get_currentTurnNumber++;
 
                 if (WinConditionRules.IsWin())
                 {
@@ -43,50 +65,8 @@ namespace TicTacToe.GameplayManagement
                     globals_GameplayTexts.pressAnyKeyToContinueText +
                     "\n");
             }
-
-            return gameLog;
-        }
-
-        private static TurnData ExecuteTurn()
-        {
-            DateTime startingTime = DateTime.Now;
-
-            Console.WriteLine($"Turn {get_currentTurnNumber}");
-
-            (int row, int column, TableElementStates selectedInput) = ExecuteInputSelection();
-
-            short indexForDimension0 = (short)(row - 1);
-            short indexForDimension1 = (short)(column - 1);
-
-            TableData.SetTableElement(indexForDimension0, indexForDimension1, selectedInput);
-
-            TableElementStates[,] table = TableData.get_table;
-
-            string lastRecordedChange = globals_GameplayTexts.GetLastRecordedChangeText(
-                indexForDimension0, indexForDimension1, table[indexForDimension0, indexForDimension1]);
-            get_currentTurnNumber++;
-            TableDisplayProvider.WriteCurrentTableToConsole();
-            DateTime finishingTime = DateTime.Now;
-
-            TurnData output = new TurnData(get_currentTurnNumber, startingTime, finishingTime, table, lastRecordedChange);
-
-            OnEventExecution?.Invoke(output);
-
+            
             return output;
         }
-
-        private static (int, int, TableElementStates) ExecuteInputSelection()
-        {
-            Console.WriteLine();
-            int row = InputSelectionRules.SelectRow();
-
-            Console.WriteLine();
-            int column = InputSelectionRules.SelectColumn();
-
-            Console.WriteLine();
-            TableElementStates selectedInput = InputSelectionRules.SelectXOrO();
-
-            return (row, column, selectedInput);
-        }       
     }
 }
