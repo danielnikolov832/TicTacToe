@@ -13,7 +13,13 @@ namespace TicTacToe.GameDataManagement
 
         private static bool[,] areTableElementsChanged = new bool[3, 3];
 
-        public static string SetTableElement(
+        public delegate void OnTableElementChangedHandler(
+            int indexForDimension0,
+            int indexForDimension1, 
+            TableElementStates? newElement);
+        public static event OnTableElementChangedHandler? OnTableElementChanged;
+
+        public static void SetTableElement(
             int indexForDimension0,
             int indexForDimension1,
             TableElementStates newElement)
@@ -26,14 +32,16 @@ namespace TicTacToe.GameDataManagement
                     {
                         Console.WriteLine(globals_GameplayTexts.alreadyAssignedText);
 
-                        return globals_GameplayTexts.noChangeOccuredText;
+                        OnTableElementChanged?.Invoke(indexForDimension0, indexForDimension1, null);
+
+                        return;
                     }
 
                     table[indexForDimension0, indexForDimension1] = newElement;
 
                     areTableElementsChanged[indexForDimension0, indexForDimension1] = true;
 
-                    return globals_GameplayTexts.GetLastRecordedChangeText(indexForDimension0, indexForDimension1);
+                    OnTableElementChanged?.Invoke(indexForDimension0, indexForDimension1, newElement);
                 }
                 catch (IndexOutOfRangeException ioorex)
                 {
