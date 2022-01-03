@@ -14,6 +14,8 @@ namespace TicTacToe
 
             GameLog currentGameLog = GameplayManager.PlayGame();
 
+            Console.WriteLine();
+
             Console.WriteLine(currentGameLog);
 
             Console.WriteLine(globals_GameplayTexts.pressAnyKeyToExitText);
@@ -31,7 +33,7 @@ namespace TicTacToe
         {
             Console.WriteLine("\n" +
             globals_GameplayTexts.winText +
-            "\n\n");
+            "\n");
         }
     }
 }

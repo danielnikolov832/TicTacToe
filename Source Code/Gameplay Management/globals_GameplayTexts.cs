@@ -26,15 +26,16 @@ namespace TicTacToe.GameplayManagement
 
         public const string noChangeOccuredText = "No change occured";
 
-        public static string GetLastRecordedChangeText(int indexForDimension0, int indexForDimension1, TableElementStates? newElement)
+        public static string GetLastRecordedChangeText(
+            bool isChanged, int indexForDimension0, int indexForDimension1, TableElementStates newElement)
         {
-            if (newElement == null)
+            if (isChanged == false)
             {
                 return globals_GameplayTexts.noChangeOccuredText;
             }
 
-            return $"Changed element at [{indexForDimension0 + 1}, {indexForDimension1 + 1}] to" + 
-            $"{TableDisplayProvider.GetTableElementAsString(newElement ?? TableElementStates.Unchecked)}";
+            return $"Changed element at [{indexForDimension0 + 1}, {indexForDimension1 + 1}] to " + 
+            $"{TableDisplayProvider.GetTableElementAsString(newElement)}";
         }
     }
 }
