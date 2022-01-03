@@ -10,6 +10,11 @@ namespace TicTacToe.GameDataManagement
         {
             TableElementStates element = table[indexForDimension0, indexForDimension1];
 
+            return GetTableElementAsString(element);
+        }
+
+        public static string GetTableElementAsString(TableElementStates element)
+        {
             switch (element)
             {
                 case TableElementStates.Unchecked: return globals_GameplayTexts.Unchecked;
@@ -52,7 +57,7 @@ namespace TicTacToe.GameDataManagement
 
         public static void WriteTableToConsole(TableElementStates [,] table)
         {
-            System.Console.WriteLine(GetTableAsString(table));
+            Console.WriteLine(GetTableAsString(table));
         }
 
         public static void WriteCurrentTableToConsole()
