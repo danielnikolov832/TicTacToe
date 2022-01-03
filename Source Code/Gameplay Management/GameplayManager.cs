@@ -17,22 +17,19 @@ namespace TicTacToe.GameplayManagement
 
         public static GameLog PlayGame()
         {
-            TableData.OnTableElementChanged += (int indexForDimension0, int indexForDimension1, TableElementStates? newElement) =>
-            {
-                if (newElement != null)
-                {
-                    InputSelectionRules.ChangePlayerElementState();
-                }
-            };
+            TableData.OnTableElementChanged += InputSelectionRules.ChangePlayerElementState_OnTableChangedEvent;
 
             GameLog output = new GameLog();
 
-            output = ExecuteGameTurnLoop();           
+            output = ExecuteGameLoop();
+
+            TableData.OnTableElementChanged -= InputSelectionRules.ChangePlayerElementState_OnTableChangedEvent;          
 
             return output;
         }
 
-        private static GameLog ExecuteGameTurnLoop()
+
+        private static GameLog ExecuteGameLoop()
         {
             GameLog output = new GameLog();
 
