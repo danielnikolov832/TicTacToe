@@ -55,7 +55,7 @@ namespace TicTacToe.GameplayManagement.Rules
             return rowOrColumn;
         }
 
-        public static void ChangePlayerElementState()
+        private static void ChangePlayerElementState()
         {
             if (currentSelectedInputState == TableElementStates.X)
             {
@@ -68,6 +68,14 @@ namespace TicTacToe.GameplayManagement.Rules
             else
             {
                 throw new Exception(globals_GameplayTexts.notValidElementStateText);
+            }
+        }
+
+        public static void ChangePlayerElementState_OnTableChangedEvent(int indexForDimension0, int indexForDimension1, TableElementStates? newElement)
+        {
+            if (newElement != null)
+            {
+                InputSelectionRules.ChangePlayerElementState();
             }
         }
     }
