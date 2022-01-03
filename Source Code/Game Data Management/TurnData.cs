@@ -40,12 +40,12 @@ namespace TicTacToe.GameDataManagement
         {
             string output = 
             $"Turn {get_turnNumber}" + "\n" + 
-            Environment.NewLine +
+            "\n" +
             $"    Starting time : {get_startingTime}" + "\n" +
             $"    Finishing time : {get_finishingTime}" + "\n" +
             $"    Last recoreded Change : {get_lastRecordedChange}" +"\n" +
             $"    Table on finish : " + "\n" + 
-            Environment.NewLine + 
+            "\n" + 
             $"{TableDisplayProvider.GetTableAsString(get_tableAtTheEndOfExecution)}";
 
             return output;

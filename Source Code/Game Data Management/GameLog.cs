@@ -21,13 +21,13 @@ namespace TicTacToe.GameDataManagement
             string output = string.Empty;
 
             output += 
-            "Game log :" + 
-            "\n\n";
+            "Game log :" + "\n" + 
+            "\n";
 
             foreach (TurnData turn in turns)
             {
-                output += turn.ToString() +
-                "\n\n";
+                output += turn.ToString() + "\n" +
+                "\n";
             }
 
             return output;

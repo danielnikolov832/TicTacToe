@@ -15,15 +15,15 @@ namespace TicTacToe.GameplayManagement.Rules
             return false;
         }
 
-        private static bool IsWinOnRow(int rowNumber)
+        private static bool IsWinOnRow(int indexForDimension0)
         {
             TableElementStates[,] table = TableData.get_table;
 
             try
             {
-                TableElementStates element1 = table[rowNumber, 0];
-                TableElementStates element2 = table[rowNumber, 1];
-                TableElementStates element3 = table[rowNumber, 2];
+                TableElementStates element1 = table[indexForDimension0, 0];
+                TableElementStates element2 = table[indexForDimension0, 1];
+                TableElementStates element3 = table[indexForDimension0, 2];
 
                 return AreAllEqualAndChecked(element1, element2, element3);
             }
@@ -34,15 +34,15 @@ namespace TicTacToe.GameplayManagement.Rules
             }
         }
 
-        private static bool IsWinOnColumn(int columnNum)
+        private static bool IsWinOnColumn(int indexForDimension1)
         {
             TableElementStates[,] table = TableData.get_table;
 
             try
             {
-                TableElementStates element1 = table[0, columnNum];
-                TableElementStates element2 = table[1, columnNum];
-                TableElementStates element3 = table[2, columnNum];
+                TableElementStates element1 = table[0, indexForDimension1];
+                TableElementStates element2 = table[1, indexForDimension1];
+                TableElementStates element3 = table[2, indexForDimension1];
 
                 return AreAllEqualAndChecked(element1, element2, element3);
             }
@@ -65,16 +65,6 @@ namespace TicTacToe.GameplayManagement.Rules
 
             return (AreAllEqualAndChecked(element1, element2, element3)
             || AreAllEqualAndChecked(element3, element4, element5));
-        }
-
-        private static bool AreAllChecked(params TableElementStates[] elements)
-        {
-            foreach(TableElementStates element in elements)
-            {
-                if (element == TableElementStates.Unchecked) return false;
-            }
-
-            return true;
         }
 
         private static bool AreAllEqualAndChecked(params TableElementStates[] elements)
