@@ -22,6 +22,7 @@ namespace TicTacToe.GameplayManagement.Rules
         }
 
         private static TableElementStates currentSelectedInputState = TableElementStates.X;
+        public static TableElementStates get_currentSelectedInputState { get => currentSelectedInputState; }
 
         public static int SelectRow()
         {
@@ -54,21 +55,15 @@ namespace TicTacToe.GameplayManagement.Rules
             return rowOrColumn;
         }
 
-        public static TableElementStates SelectXOrO()
+        public static void ChangePlayerElementState()
         {
-            ConsoleKeyInfo currentKeyInfo = Console.ReadKey(true);
-            
             if (currentSelectedInputState == TableElementStates.X)
             {
                 currentSelectedInputState = TableElementStates.O;
-
-                return TableElementStates.X;
             }
             else if (currentSelectedInputState == TableElementStates.O)
             {
                 currentSelectedInputState = TableElementStates.X;
-
-                return TableElementStates.O;
             }
             else
             {

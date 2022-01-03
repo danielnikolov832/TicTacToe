@@ -19,7 +19,7 @@ namespace TicTacToe.GameDataManagement
             TableElementStates? newElement);
         public static event OnTableElementChangedHandler? OnTableElementChanged;
 
-        public static void SetTableElement(
+        public static bool TrySetTableElement(
             int indexForDimension0,
             int indexForDimension1,
             TableElementStates newElement)
@@ -34,7 +34,7 @@ namespace TicTacToe.GameDataManagement
 
                         OnTableElementChanged?.Invoke(indexForDimension0, indexForDimension1, null);
 
-                        return;
+                        return false;
                     }
 
                     table[indexForDimension0, indexForDimension1] = newElement;
@@ -42,10 +42,14 @@ namespace TicTacToe.GameDataManagement
                     areTableElementsChanged[indexForDimension0, indexForDimension1] = true;
 
                     OnTableElementChanged?.Invoke(indexForDimension0, indexForDimension1, newElement);
+
+                    return true;
                 }
-                catch (IndexOutOfRangeException ioorex)
+                catch (IndexOutOfRangeException)
                 {
-                    throw new ArgumentOutOfRangeException("Invalid argument/s gave IndexOutOfRangeException on array access", ioorex);
+                    OnTableElementChanged?.Invoke(indexForDimension0, indexForDimension1, null);
+
+                    return false;
                 }
             }
         }
