@@ -1,0 +1,12 @@
+C:\Users\User\Desktop\THE_PARENT\OUTSIDE_PROGRAMMING\Pure C-Sharp\TicTacToe\TicTacToeLibrary\bin\Debug\net6.0\TicTacToeLibrary.deps.json
+C:\Users\User\Desktop\THE_PARENT\OUTSIDE_PROGRAMMING\Pure C-Sharp\TicTacToe\TicTacToeLibrary\bin\Debug\net6.0\TicTacToeLibrary.dll
+C:\Users\User\Desktop\THE_PARENT\OUTSIDE_PROGRAMMING\Pure C-Sharp\TicTacToe\TicTacToeLibrary\bin\Debug\net6.0\ref\TicTacToeLibrary.dll
+C:\Users\User\Desktop\THE_PARENT\OUTSIDE_PROGRAMMING\Pure C-Sharp\TicTacToe\TicTacToeLibrary\bin\Debug\net6.0\TicTacToeLibrary.pdb
+C:\Users\User\Desktop\THE_PARENT\OUTSIDE_PROGRAMMING\Pure C-Sharp\TicTacToe\TicTacToeLibrary\obj\Debug\net6.0\TicTacToeLibrary.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\THE_PARENT\OUTSIDE_PROGRAMMING\Pure C-Sharp\TicTacToe\TicTacToeLibrary\obj\Debug\net6.0\TicTacToeLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\THE_PARENT\OUTSIDE_PROGRAMMING\Pure C-Sharp\TicTacToe\TicTacToeLibrary\obj\Debug\net6.0\TicTacToeLibrary.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\THE_PARENT\OUTSIDE_PROGRAMMING\Pure C-Sharp\TicTacToe\TicTacToeLibrary\obj\Debug\net6.0\TicTacToeLibrary.AssemblyInfo.cs
+C:\Users\User\Desktop\THE_PARENT\OUTSIDE_PROGRAMMING\Pure C-Sharp\TicTacToe\TicTacToeLibrary\obj\Debug\net6.0\TicTacToeLibrary.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\THE_PARENT\OUTSIDE_PROGRAMMING\Pure C-Sharp\TicTacToe\TicTacToeLibrary\obj\Debug\net6.0\TicTacToeLibrary.dll
+C:\Users\User\Desktop\THE_PARENT\OUTSIDE_PROGRAMMING\Pure C-Sharp\TicTacToe\TicTacToeLibrary\obj\Debug\net6.0\ref\TicTacToeLibrary.dll
+C:\Users\User\Desktop\THE_PARENT\OUTSIDE_PROGRAMMING\Pure C-Sharp\TicTacToe\TicTacToeLibrary\obj\Debug\net6.0\TicTacToeLibrary.pdb
