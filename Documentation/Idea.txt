@@ -1,2 +1,0 @@
-The idea is to create a basic app, representing the game TicTacToe on integrated terminal, and 
-to record as much data from the game as possible for consumer usage later
