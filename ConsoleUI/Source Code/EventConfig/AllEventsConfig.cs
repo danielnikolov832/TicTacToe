@@ -1,7 +1,7 @@
 using TicTacToe.GameDataManagement;
 using TicTacToe.GameplayManagement.GameExecution;
 
-namespace ConsoleUI.ConsoleConfig
+namespace ConsoleUI.EventConfig
 {
     // Defines the functionality this form of UI will have, by setting up events
     internal static class AllEventsConfig

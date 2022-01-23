@@ -1,7 +1,8 @@
 using TicTacToe.GameplayManagement.GameExecution;
 
-namespace ConsoleUI.ConsoleConfig
+namespace ConsoleUI.EventConfig
 {
+    // Defines the functionality this form of UI will have, when a draw takes place
     internal static class EventsForDraw
     {
         private const string drawText = "Its a draw";

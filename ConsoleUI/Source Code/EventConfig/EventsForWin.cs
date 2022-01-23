@@ -1,7 +1,8 @@
 using TicTacToe.GameplayManagement.GameExecution;
 
-namespace ConsoleUI.ConsoleConfig
+namespace ConsoleUI.EventConfig
 {
+    // Defines the functionality this form of UI will have, when a win takes place
     internal static class EventsForWin
     {
         private const string winText = "We won";

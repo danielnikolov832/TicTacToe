@@ -2,6 +2,8 @@ using TicTacToe.GameplayManagement.GameExecution;
 
 namespace ConsoleUI
 {
+    // Defines the IGameExiter implementation for this form of UI, 
+    // defining how can the game be exited by the user, before application termination
     internal sealed class GameExiter : IGameExiter
     {
         internal GameExiter(ConsoleKey gameExitKey)

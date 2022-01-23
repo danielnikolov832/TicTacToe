@@ -4,7 +4,7 @@ using TicTacToe.GameplayManagement;
 using TicTacToe.GameDataManagement;
 using TicTacToe.GameplayManagement.GameExecution;
 
-using ConsoleUI.ConsoleConfig;
+using ConsoleUI.EventConfig;
 
 namespace ConsoleUI
 {
