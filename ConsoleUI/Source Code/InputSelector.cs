@@ -4,30 +4,34 @@ namespace ConsoleUI
 {
     internal class InputSelector : IInputSelector
     {
+        private const string selectRowText = "Please enter a number between 1 and 3 to select a corresponding row";
+        private const string selectColumnText = "Please enter a number between 1 and 3 to select a corresponding column";
+        private const string invalidInputText = "Invalid input";
+
         public virtual short SelectRow()
         {
-            Console.WriteLine(globals_GameplayTexts.selectRowText);
+            Console.WriteLine(selectRowText);
 
             return SelectTableCoordinate();
         }
 
         public virtual short RecoverOnFailedSelectRow()
         {
-            Console.WriteLine(globals_GameplayTexts.invalidInputText);
+            Console.WriteLine(invalidInputText);
             
             return SelectRow();
         }
 
         public virtual short SelectColumn()
         {
-            Console.WriteLine(globals_GameplayTexts.selectColumnText);
+            Console.WriteLine(selectColumnText);
 
             return SelectTableCoordinate();
         }
 
         public virtual short RecoverOnFailedSelectColumn()
         {
-            System.Console.WriteLine(globals_GameplayTexts.invalidInputText);
+            System.Console.WriteLine(invalidInputText);
             
             return SelectRow();
         }

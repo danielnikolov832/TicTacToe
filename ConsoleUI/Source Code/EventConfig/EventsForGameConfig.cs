@@ -6,6 +6,8 @@ namespace ConsoleUI.ConsoleConfig
     // Defines the functionality this form of UI will have, when game config takes place
     internal static class EventsForGameConfig
     {
+        private const string unsuccessfulAssignmentText = "Element was not assigned successfully, try different coordinates";
+
         private static readonly object __lockObj = new object();
 
         private static Table? table;
@@ -55,7 +57,7 @@ namespace ConsoleUI.ConsoleConfig
         {
             if (e.get_newElement == null)
             {
-                Console.WriteLine(globals_GameplayTexts.unsuccessfulAssignmentText);
+                Console.WriteLine(unsuccessfulAssignmentText);
             }
         }
     }

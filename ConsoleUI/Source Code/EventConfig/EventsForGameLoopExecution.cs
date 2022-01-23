@@ -6,6 +6,8 @@ namespace ConsoleUI.ConsoleConfig
     // Defines the functionality this form of UI will have, while game loop execution takes place
     internal static class EventsForGameLoopExecution
     {
+        private const string introductoryText = "Hi, ready for some good old TicTacToe";
+
         internal static void SubscribeToEventsForGameLoopExecution()
         {
             GameplayManager.OnBeginExecuteGameLoop += GameplayManager_OnBeginExecuteGameLoop;
@@ -22,7 +24,7 @@ namespace ConsoleUI.ConsoleConfig
 
         private static void GameplayManager_OnBeginExecuteGameLoop(object? sender, EventArgs e)
         {
-            Console.WriteLine(globals_GameplayTexts.introductoryText);
+            Console.WriteLine(introductoryText);
             Console.WriteLine(globals_GameplayTexts.pressAnyKeyToContinueText);
         }
 
