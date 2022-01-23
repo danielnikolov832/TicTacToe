@@ -6,6 +6,21 @@ namespace TicTacToe.GameplayManagement.Rules
     // Defines and returns the win conditions of the game (whether or not someone won)
     internal static class WinConditionRules
     {
+        internal static bool IsTableDraw(Table table)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    TableElementStates element = table[i, j];
+
+                    if (element == TableElementStates.Unchecked) return false;
+                }
+            }
+
+            return true;
+        }
+
         internal static bool IsTableWin(Table table)
         {
             if (IsTableWinOnRow(table, 0) || IsTableWinOnRow(table, 1) || IsTableWinOnRow(table, 2)

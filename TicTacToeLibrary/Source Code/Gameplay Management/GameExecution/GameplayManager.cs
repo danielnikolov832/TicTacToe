@@ -26,6 +26,8 @@ namespace TicTacToe.GameplayManagement.GameExecution
         public static event EventHandler<int>? BeforeEventExecution;
     
         public static event EventHandler? OnWin;
+
+        public static event EventHandler? OnDraw;
     
         public static event EventHandler<TurnData>? AfterEventExecution;
 
@@ -70,9 +72,22 @@ namespace TicTacToe.GameplayManagement.GameExecution
 
                 output.AddTurn(turn);
 
-                if (WinConditionRules.IsTableWin(turn.get_tableAtTheEndOfExecution))
+                Table tableAtTheEndOfExecution = turn.get_tableAtTheEndOfExecution;
+
+                bool isTableWin = WinConditionRules.IsTableWin(tableAtTheEndOfExecution);
+
+                if (isTableWin)
                 {
                     OnWin?.Invoke(null, EventArgs.Empty);
+
+                    break;
+                }
+
+                bool IsTableDraw = WinConditionRules.IsTableDraw(tableAtTheEndOfExecution);
+                
+                if (IsTableDraw)
+                {
+                    OnDraw?.Invoke(null, EventArgs.Empty);
 
                     break;
                 }
