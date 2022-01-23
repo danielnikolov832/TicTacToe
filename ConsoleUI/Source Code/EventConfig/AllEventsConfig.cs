@@ -11,6 +11,8 @@ namespace ConsoleUI.ConsoleConfig
             EventsForGameConfig.SubscribeToEventsForGameConfigure();
             EventsForTurnExecution.SubscribeToEventsForEventExecution();
             EventsForGameLoopExecution.SubscribeToEventsForGameLoopExecution();
+            EventsForDraw.SubscribeToEventsForDraw();
+            EventsForWin.SubscribeToEventsForWin();
         }
 
         internal static void UnsubscribeFromAllEvents()
@@ -19,6 +21,8 @@ namespace ConsoleUI.ConsoleConfig
             EventsForGameConfig.UnsubscribeToEventsForGameConfigure();
             EventsForTurnExecution.UnsubscribeFromEventsForEventExecution();
             EventsForGameLoopExecution.UnsubscribeFromEventsForGameLoopExecution();
+            EventsForDraw.UnsubscribeFromEventsForDraw();
+            EventsForWin.UnsubscribeFromEventsForWin();
         }
     }
 }
