@@ -12,14 +12,14 @@ namespace TicTacToe.GameDataManagement
             private set => table[indexForDimension0, indexForDimension1] = value;
         }
 
-        public Table()
+        internal Table()
         {
             
         }
 
         // Creates and returns a new instance, 
         // that references a different object in memory
-        public Table(Table copy)
+        internal Table(Table copy)
         {
             for (int i = 0; i < table.GetLength(0); i++)
             {
