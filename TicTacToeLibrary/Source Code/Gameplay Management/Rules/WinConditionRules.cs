@@ -57,7 +57,7 @@ namespace TicTacToe.GameplayManagement.Rules
             TableElementStates element5 = table[0, 2];
 
             return (AreAllEqualAndChecked(element1, element2, element3)
-            || AreAllEqualAndChecked(element3, element4, element5));
+            || AreAllEqualAndChecked(element2, element4, element5));
         }
 
         private static bool AreAllEqualAndChecked(params TableElementStates[] elements)
@@ -70,8 +70,7 @@ namespace TicTacToe.GameplayManagement.Rules
             {
                 TableElementStates element = elements[i];
 
-                if (element == TableElementStates.Unchecked
-                || element != element0) return false;
+                if (element != element0) return false;
             }
 
             return true;
