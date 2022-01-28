@@ -1,6 +1,8 @@
 using TicTacToe.GameDataManagement;
 using TicTacToe.GameplayManagement.GameExecution;
 
+using static ConsoleUI.ConsoleAddedMethods;
+
 namespace ConsoleUI.EventConfig
 {
     // Defines the functionality this form of UI will have, while event execution takes place
@@ -27,7 +29,7 @@ namespace ConsoleUI.EventConfig
 
         private static void GameplayManager_AfterEventExecution(object? sender, TurnData e)
         {
-            Console.WriteLine(e.get_tableAtTheEndOfExecution);
+            WriteLineWithOptionalLining(e.get_tableAtTheEndOfExecution, true, true);
         }
     }
 }

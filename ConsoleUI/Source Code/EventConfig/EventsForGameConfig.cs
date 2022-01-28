@@ -1,6 +1,8 @@
 using TicTacToe.GameDataManagement;
 using TicTacToe.GameplayManagement.GameExecution;
 
+using static ConsoleUI.ConsoleAddedMethods;
+
 namespace ConsoleUI.EventConfig
 {
     // Defines the functionality this form of UI will have, when game config takes place
@@ -57,7 +59,7 @@ namespace ConsoleUI.EventConfig
         {
             if (e.get_newElement == null)
             {
-                Console.WriteLine(unsuccessfulAssignmentText);
+                WriteLineWithOptionalLining(unsuccessfulAssignmentText, true, false);
             }
         }
     }
