@@ -18,12 +18,17 @@ namespace TicTacToe.GameplayManagement.Rules
             DateTime startingTime = DateTime.Now;
 
             (short indexForDimension0, short indexForDimension1) = 
-            TableCoordinateSelectionRules.GetCoordinatesFromRowAndColumn(inputSelector);
+            TableCoordinateSelectionRules.GetCoordinatesFromRowAndColumnInInputSelector(inputSelector);
             
             bool success = table.TrySetTableElement(indexForDimension0, indexForDimension1, playerInputState);
 
-            string lastRecordedChange = GetLastRecordedChangeText(
-                success, indexForDimension0, indexForDimension1, playerInputState);
+            if (success == false)
+            {
+                return ExecuteTurn(currentTurnNumber, inputSelector, playerInputState, table);
+            }
+
+            string lastRecordedChange = $"Changed element at [{indexForDimension0 + 1}, {indexForDimension1 + 1}] to " + 
+            $"{TableElementDisplayProvider.GetTableElementAsString(playerInputState)}";
 
             DateTime finishingTime = DateTime.Now;
 
@@ -36,18 +41,6 @@ namespace TicTacToe.GameplayManagement.Rules
                 lastRecordedChange);
 
             return output;
-        }
-
-        private static string GetLastRecordedChangeText(
-            bool isChanged, int indexForDimension0, int indexForDimension1, TableElementStates newElement)
-        {
-            if (isChanged == false)
-            {
-                return noChangeOccuredText;
-            }
-
-            return $"Changed element at [{indexForDimension0 + 1}, {indexForDimension1 + 1}] to " + 
-            $"{TableElementDisplayProvider.GetTableElementAsString(newElement)}";
         }
     }
 }
