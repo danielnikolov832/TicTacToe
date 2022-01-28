@@ -5,7 +5,7 @@ namespace TicTacToe.GameplayManagement.Rules.Input
     // Defines the rules on how the player/s can select input
     public static class TableCoordinateSelectionRules
     {
-        internal static (short indexForDimension0, short indexForDimension1) GetCoordinatesFromRowAndColumn(
+        internal static (short indexForDimension0, short indexForDimension1) GetCoordinatesFromRowAndColumnInInputSelector(
             IInputSelector inputSelector)
         {
             (short rowNum, short columnNum) = GetRowAndColumn(inputSelector);
