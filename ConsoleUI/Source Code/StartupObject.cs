@@ -5,6 +5,7 @@ using TicTacToe.GameDataManagement;
 using TicTacToe.GameplayManagement.GameExecution;
 
 using ConsoleUI.EventConfig;
+using ConsoleUI.InputRules;
 
 namespace ConsoleUI
 {
