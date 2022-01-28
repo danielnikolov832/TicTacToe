@@ -1,6 +1,8 @@
 using TicTacToe.GameplayManagement.Rules.Input;
 
-namespace ConsoleUI
+using static ConsoleUI.ConsoleAddedMethods;
+
+namespace ConsoleUI.InputRules
 {
     internal class InputSelector : IInputSelector
     {
@@ -10,30 +12,30 @@ namespace ConsoleUI
 
         public virtual short SelectRow()
         {
-            Console.WriteLine(selectRowText);
+            WriteLineWithOptionalLining(selectRowText, true, false);
 
             return SelectTableCoordinate();
         }
 
         public virtual short RecoverOnFailedSelectRow()
         {
-            Console.WriteLine(invalidInputText);
+            WriteLineWithOptionalLining(invalidInputText, true, false);
             
             return SelectRow();
         }
 
         public virtual short SelectColumn()
         {
-            Console.WriteLine(selectColumnText);
+            WriteLineWithOptionalLining(selectColumnText, true, false);
 
             return SelectTableCoordinate();
         }
 
         public virtual short RecoverOnFailedSelectColumn()
         {
-            System.Console.WriteLine(invalidInputText);
+            WriteLineWithOptionalLining(invalidInputText, true, false);
             
-            return SelectRow();
+            return SelectColumn();
         }
 
         protected virtual short SelectTableCoordinate()
