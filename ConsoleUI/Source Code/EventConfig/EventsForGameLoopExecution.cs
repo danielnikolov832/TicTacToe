@@ -1,3 +1,4 @@
+using ConsoleUI.DisplayProviers;
 using TicTacToe.GameDataManagement;
 using TicTacToe.GameplayManagement.GameExecution;
 
@@ -25,12 +26,17 @@ namespace ConsoleUI.EventConfig
         private static void GameplayManager_OnBeginExecuteGameLoop(object? sender, EventArgs e)
         {
             Console.WriteLine(introductoryText);
-            Console.WriteLine(globals_GameplayTexts.pressAnyKeyToContinueText);
+            Console.WriteLine(GetPressAnyKeyToContinueOrPressKeyToExitText());
         }
 
         private static void GameplayManager_BeforeSwitchTurn(object? sender, EventArgs e)
         {
-            Console.WriteLine(globals_GameplayTexts.pressAnyKeyToContinueText);
+            Console.WriteLine(GetPressAnyKeyToContinueOrPressKeyToExitText());
+        }
+
+        private static string GetPressAnyKeyToContinueOrPressKeyToExitText()
+        {
+            return $"{globals_GameplayTexts.pressAnyKeyToContinueText} or press {GameExiterDisplayProvider.GetGameExitKeyAsString()} to exit";
         }
 
         private static void GameplayManager_OnEndExecuteGameLoop(object? sender, GameLog e)
