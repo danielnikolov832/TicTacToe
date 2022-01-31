@@ -1,6 +1,7 @@
 namespace ConsoleUI
 {
-    internal static class ConsoleAddedMethods
+    // Defines the static methods to make console spacing easier to implement
+    internal static class ConsoleSpacingMethods
     {
         internal static void WriteLineWithOptionalLining(object? obj, bool willHaveEmptyLineBefore, bool willHaveEmptyLineAfter)
         {
