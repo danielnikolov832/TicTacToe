@@ -1,11 +1,7 @@
-using System;
-
-using TicTacToe.GameplayManagement;
 using TicTacToe.GameDataManagement;
 using TicTacToe.GameplayManagement.GameExecution;
 
 using ConsoleUI.EventConfig;
-using ConsoleUI.InputRules;
 
 namespace ConsoleUI
 {
@@ -15,11 +11,13 @@ namespace ConsoleUI
         private static void Main(string[] args)
         {
             AllEventsConfig.SubscribeToAllEvents();
-            
+
             GameLog currentGameLog = GameplayManager.PlayGame(
-                new InputSelector(),
-                TableElementStates.O,
-                new GameExiter(ConsoleKey.Escape));
+
+                GameConfig.get_inputSelector,
+                GameConfig.get_startingState,
+                GameConfig.get_gameExiter
+            );
         }
     }
 }
