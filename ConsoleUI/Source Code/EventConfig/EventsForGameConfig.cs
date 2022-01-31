@@ -1,7 +1,7 @@
 using TicTacToe.GameDataManagement;
 using TicTacToe.GameplayManagement.GameExecution;
 
-using static ConsoleUI.ConsoleAddedMethods;
+using static ConsoleUI.ConsoleSpacingMethods;
 
 namespace ConsoleUI.EventConfig
 {
