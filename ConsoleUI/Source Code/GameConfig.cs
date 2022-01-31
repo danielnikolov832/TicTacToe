@@ -1,10 +1,11 @@
 using ConsoleUI.InputRules;
 using TicTacToe.GameplayManagement;
-using TicTacToe.GameplayManagement.GameExecution;
 using TicTacToe.GameplayManagement.Rules.Input;
 
 namespace ConsoleUI
 {
+    // Defines and stores the container for the objects that get passed as
+    // parameters when GamePlayManager.PlayGame is called in ConsoleUI.StartupObject
     internal static class GameConfig
     {
         private static IInputSelector inputSelector = new InputSelector();
