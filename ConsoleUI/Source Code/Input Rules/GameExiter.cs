@@ -6,13 +6,13 @@ namespace ConsoleUI.InputRules
     // defining how can the game be exited by the user, before application termination
     internal sealed class GameExiter : IGameExiter
     {
-        internal GameExiter(ConsoleKey gameExitKey)
+        internal GameExiter(ConsoleKey gameExitKey = ConsoleKey.Escape)
         {
             _gameExitKey = gameExitKey;
         }
 
         private ConsoleKey _gameExitKey;
-        public ConsoleKey getset_gameExitKey {get => _gameExitKey; set => _gameExitKey = value; }
+        public ConsoleKey getset_gameExitKey { get => _gameExitKey; set => _gameExitKey = value; }
 
         public bool WillExitGameImmediately()
         {

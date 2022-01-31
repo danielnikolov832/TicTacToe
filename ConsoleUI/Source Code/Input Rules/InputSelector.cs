@@ -1,6 +1,6 @@
 using TicTacToe.GameplayManagement.Rules.Input;
 
-using static ConsoleUI.ConsoleAddedMethods;
+using static ConsoleUI.ConsoleSpacingMethods;
 
 namespace ConsoleUI.InputRules
 {
